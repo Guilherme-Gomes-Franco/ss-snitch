@@ -70,7 +70,7 @@ public class Bank implements IBank {
         } else {
             Log.getInstance().logSuccessfulTransaction(senderId, receiverId, amount);
             sender.withdraw(amount);
-            getAccount(senderId).deposit(amount);
+            getAccount(receiverId).deposit(amount);
         }
 
         return sender.getBalance();
