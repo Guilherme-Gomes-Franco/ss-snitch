@@ -18,7 +18,7 @@ public class BankClientEndpoint implements IBankEndpoint {
 
     @Override
     public double getBalance() {
-        return bank.getAccountBalance(userId);
+        return bank.getAccountBalance(userId); // Fixed Information Leak always searching for id 0
     }
 
     @Override
