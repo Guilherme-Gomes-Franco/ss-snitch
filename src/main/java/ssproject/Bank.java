@@ -51,6 +51,7 @@ public class Bank implements IBank {
 
     @Override
     public double deposit(int accountId, double amount) {
+        // TODO isto não devia ter checks para ver se o valor a depositar é positivo?
         final var account = getAccount(accountId);
 
         Log.getInstance().logDeposit(accountId, account.getBalance());
