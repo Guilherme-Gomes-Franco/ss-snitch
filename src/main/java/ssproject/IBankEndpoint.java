@@ -44,4 +44,7 @@ public interface IBankEndpoint {
         throw new UnsupportedOperationException();
     }
 
+    default double getClientBalance(int clientId) {
+        throw new UnsupportedOperationException();
+    }
 }

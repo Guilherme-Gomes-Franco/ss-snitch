@@ -125,6 +125,7 @@ public class UnitTests {
     }
 
 
+    //expected to fail?
     @Test
     public void testGetBalanceNotOK() {
         final IBank bank = newBank();
@@ -136,5 +137,30 @@ public class UnitTests {
 
         endpoint.getBalance();
     }
+
+
+    @Test
+    public void testEmployeeCanAccessAnyBalance() {
+        final IBank bank = newBank();
+
+        final int clientId = bank.newAccount();
+        final IBankEndpoint employeeEndpoint = newBankEndpoint(BankEmployeeEndpoint.class, bank, /* employeeId */ 0);
+
+        double balance = employeeEndpoint.getClientBalance(clientId);
+    }
+
+    /*@Test
+    public void testEmployeeCannotAccessBalanceWithoutPermission() {
+        final IBank bank = newBank();
+
+        final int clientId = bank.newAccount();
+        final IBankEndpoint unauthorizedEmployeeEndpoint = newBankEndpoint(BankClientEndpoint.class, bank, clientId);
+
+        unauthorizedEmployeeEndpoint.getClientBalance(clientId);
+
+    }*/
+
+
+
 
 }

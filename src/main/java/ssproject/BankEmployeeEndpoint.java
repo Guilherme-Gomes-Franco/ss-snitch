@@ -31,4 +31,9 @@ public class BankEmployeeEndpoint implements IBankEndpoint {
         return userId;
     }
 
+    @Override
+    public double getClientBalance(int clientId) {
+        return bank.getAccountBalance(clientId);
+    }
+
 }
