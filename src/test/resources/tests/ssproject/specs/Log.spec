@@ -1,5 +1,7 @@
 package ssproject;
 
-public class Log {
+import ssproject.labels.Employee;
 
+public class Log {
+    public String:Employee() getLog();
 }
