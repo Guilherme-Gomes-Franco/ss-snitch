@@ -138,6 +138,21 @@ public class UnitTests {
         endpoint.getBalance();
     }
 
+    @Test
+    public void testEmployeeCanTransferOk() {
+        final IBank bank = newBank();
+
+        final int clientId1 = bank.newAccount();
+        final int clientId2 = bank.newAccount();
+
+        final IBankEndpoint endpoint = newBankEndpoint(BankClientEndpoint.class, bank, clientId1);
+        endpoint.deposit(100.00);
+        endpoint.transfer(clientId2, 50.00);
+
+        System.out.println(endpoint.getBalance());
+
+    }
+
 
     @Test
     public void testEmployeeCanAccessAnyBalance() {
