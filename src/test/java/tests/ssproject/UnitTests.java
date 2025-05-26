@@ -146,10 +146,13 @@ public class UnitTests {
         final int clientId2 = bank.newAccount();
 
         final IBankEndpoint endpoint = newBankEndpoint(BankClientEndpoint.class, bank, clientId1);
+        final IBankEndpoint endpoint2 = newBankEndpoint(BankClientEndpoint.class, bank, clientId2);
         endpoint.deposit(100.00);
         endpoint.transfer(clientId2, 50.00);
 
+        //TODO see why no money is being transfered
         System.out.println(endpoint.getBalance());
+        System.out.println(endpoint2.getBalance());
 
     }
 
